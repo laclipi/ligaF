@@ -1,10 +1,12 @@
+/* Destacar el equipo Barcelona */
 .highlight {
     background-color: yellow;
-    border: 2px solid orange;
 }
 
-.clase-css {
-    background-color: lightblue;
-    border: 2px dashed navy;
+/* Estilos para el div de resultados */
+#resultados {
+    margin-top: 20px;
     padding: 10px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
 }
