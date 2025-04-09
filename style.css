@@ -2,3 +2,9 @@
     background-color: yellow;
     border: 2px solid orange;
 }
+
+.clase-css {
+    background-color: lightblue;
+    border: 2px dashed navy;
+    padding: 10px;
+}

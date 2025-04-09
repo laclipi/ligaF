@@ -1,168 +1,141 @@
 $(document).ready(function () {
-    // 1. Clic en el Botón 1: Aumentar tamaño del título
-    $('#boton1').click(function () {
-        const titulo = $('.titulo');
-        let currentSize = parseInt(titulo.css('font-size'));
-        titulo.css('font-size', (currentSize + 5) + 'px');
-        boton1Clicked = true;
-        checkBoton1Y2();
+    // 10 - Ocultar Real Madrid al cargar
+    $("#real-madrid").hide();
+    $("<button>Mostrar Real Madrid</button>").insertAfter("#real-madrid").click(function () {
+        $("#real-madrid").show();
     });
 
-    // 2. Pase del ratón sobre el Botón 2: Resaltar equipo FC Barcelona
-    $('#boton2').hover(
-        function () {
-            $('#barcelona').addClass('highlight');
-        },
-        
-        function () {
-            $('#barcelona').removeClass('highlight');
-        }
-    ).click(function () {
-        boton2Clicked = true;
-        checkBoton1Y2();
+    // 1 - Aumentar tamaño del título 5px
+    $("#boton1").click(function () {
+        let actual = parseInt($(".titulo").css("font-size"));
+        $(".titulo").css("font-size", (actual + 5) + "px");
+        boton1Clicado = true;
+        verificarBotonesClicados();
     });
 
-    // 3. Doble clic en el Botón 3: Ocultar fila Atlético de Madrid
-    $('#boton3').dblclick(function () {
-        $('#clasificacion table tr').each(function () {
-            if ($(this).text().includes('Atlético de Madrid')) {
-                $(this).hide();
-            }
-        });
+    // 2 - Resaltar Barcelona al pasar ratón sobre boton2
+    $("#boton2").on("mouseenter", function () {
+        $("#barcelona").addClass("highlight");
+    }).on("mouseleave", function () {
+        $("#barcelona").removeClass("highlight");
+    }).on("click", function () {
+        boton2Clicado = true;
+        verificarBotonesClicados();
     });
 
-    // 4. Clic en el Botón 4: Desvanecer noticias
-    $('#boton4').click(function () {
-        $('.noticia').fadeOut(1000);
+    // 3 - Ocultar fila de Atlético de Madrid
+    $("#boton3").on("dblclick", function () {
+        $("#clasificacion table tr").filter(function () {
+            return $(this).text().includes("Atlético de Madrid");
+        }).hide();
     });
 
-    // 5. Mouse enter/leave en descripción de la liga
-    $('.descripcion').hover(
-        function () {
-            $(this).css('font-weight', 'bold');
-        },
-        function () {
-            $(this).css('font-weight', 'normal');
-        }
-    );
+    // 4 - Desvanecer noticias
+    $("#boton4").click(function () {
+        $(".noticia").fadeOut(1000);
+    });
 
-    // 6. Clic en título del equipo: alertar el nombre
-    $('.nombre-equipo').click(function () {
+    // 5 - Toggle negrita descripción liga
+    $(".descripcion").on("mouseenter", function () {
+        $(this).css("font-weight", "bold");
+    }).on("mouseleave", function () {
+        $(this).css("font-weight", "normal");
+    });
+
+    // 6 - Alertar nombre del equipo
+    $(".nombre-equipo").click(function () {
         alert($(this).text());
     });
 
-    // 7. Doble clic en encabezado (th): agregar borde rojo a celdas (td)
-    $('th').dblclick(function () {
-        $(this).closest('table').find('td').css('border', '2px solid red');
+    // 7 - Doble clic en th -> borde rojo a td
+    $("th").on("dblclick", function () {
+        $(this).closest("table").find("td").css("border", "2px solid red");
     });
 
-    // 8. Mouse enter en título de noticias: subrayado
-    $('.titulo-noticia').hover(
-        function () {
-            $(this).css('text-decoration', 'underline');
-        },
-        function () {
-            $(this).css('text-decoration', 'none');
-        }
-    );
+    // 8 - Subrayar título-noticia
+    $(".titulo-noticia").on("mouseenter", function () {
+        $(this).css("text-decoration", "underline");
+    }).on("mouseleave", function () {
+        $(this).css("text-decoration", "none");
+    });
 
-    // 9. Clic en Botón 1 + Botón 2: cambiar color del texto en la tabla
-    let boton1Clicked = false;
-    let boton2Clicked = false;
+    // 9 - Clic en botón1 + botón2 cambia color texto celdas a verde
+    let boton1Clicado = false;
+    let boton2Clicado = false;
 
-    function checkBoton1Y2() {
-        if (boton1Clicked && boton2Clicked) {
-            $('#clasificacion td').css('color', 'green');
+    function verificarBotonesClicados() {
+        if (boton1Clicado && boton2Clicado) {
+            $("td").css("color", "green");
         }
     }
 
-    // 10. Al cargar: ocultar Real Madrid y mostrar botón
-    $('#real-madrid').hide();
-    $('body').append('<button id="mostrar-real-madrid">Mostrar Real Madrid</button>');
+    // === EJERCICIOS DE MANIPULACIÓN ===
 
-    $('#mostrar-real-madrid').click(function () {
-        $('#real-madrid').show();
+    // 11 - prepend
+    $("#btn11").click(function () {
+        $("#objetivo").prepend("Hola <strong>buenas</strong> tardes ");
     });
 
-    //11. prepend()
+    // 12 - after
+    $("#btn12").click(function () {
+        $("#objetivo").after("Hola <strong>buenas</strong> tardes ");
+    });
 
-$("#objetivo").prepend("Hola <strong>buenas</strong> tardes");
-//Qué hace: Inserta al inicio del contenido de #objetivo. Resultado →
-//Hola buenas tardesContenido original del div #objetivo
+    // 13 - remove
+    $("#btn13").click(function () {
+        $("#objetivo").remove();
+    });
 
-//12. after()
+    // 14 - empty
+    $("#btn14").click(function () {
+        $("#objetivo").empty();
+    });
 
-$("#objetivo").after("Hola <strong>buenas</strong> tardes");
-//Qué hace: Agrega el contenido justo después del elemento #objetivo, fuera de él.
+    // 15 - addClass
+    $("#btn15").click(function () {
+        $("#objetivo").addClass("clase-css");
+    });
 
-// 13. remove()
+    // 16 - removeClass
+    $("#btn16").click(function () {
+        $("#objetivo").removeClass("clase-css");
+    });
 
-$("#objetivo").remove();
-//Qué hace: Elimina por completo el elemento con id objetivo del DOM.
+    // 17 - toggleClass
+    $("#btn17").click(function () {
+        $("#objetivo").toggleClass("clase-css");
+    });
 
-// 14. empty() (corrección: faltaba #)
+    // 18 - css
+    $("#btn18").click(function () {
+        $("#objetivo").css({
+            "color": "white",
+            "background-color": "black",
+            "font-size": "20px"
+        });
+    });
 
-$("#objetivo").empty();
-//Qué hace: Borra todo lo que está dentro de #objetivo, pero no elimina el contenedor.
+    // 19 - hide
+    $("#btn19").click(function () {
+        $("#objetivo").hide();
+    });
 
-//15. addClass() (corrección: faltaba #)
+    // 20 - click
+    $("#btn20").click(function () {
+        alert("Has hecho clic en el botón 20");
+    });
 
-$("#objetivo").addClass("clase-css");
-//Qué hace: Añade una clase CSS al elemento #objetivo.
-// Asegúrate de definir .clase-css en tu CSS, por ejemplo:
+    // 21 - mouseenter
+    $("#btn21").click(function () {
+        $("#objetivo").mouseenter(function () {
+            alert("Mouse entró en #objetivo");
+        });
+    });
 
-
-.clase-css {
-    background-color: lightblue;
-    padding: 10px;
-    border-radius: 5px;
-}
-// 16. removeClass() (corrección: faltaba #)
-
-$("#objetivo").removeClass("clase-css");
-//Qué hace: Elimina la clase "clase-css" del elemento #objetivo.
-
-// 17. toggleClass() (corrección: faltaba #)
-
-$("#objetivo").toggleClass("clase-css");
-//Qué hace: Si el elemento tiene la clase, la quita; si no la tiene, la agrega (ideal para alternar).
-
-// 18. .css({...}) (corrección: faltaba #)
-
-$("#objetivo").css({
-    "color": "white",
-    "background-color": "black",
-    "font-size": "20px"
-});
-//Qué hace: Aplica varios estilos CSS directamente al elemento.
-
-// 19. hide()
-
-$("#objetivo").hide();
-//Qué hace: Oculta el elemento sin animación.
-
-//20. Evento click
-
-$("#boton1").click(function () {
-    console.log("¡Clic en botón 1!");
-});
-Qué hace: Ejecuta la función cuando se hace clic en #boton1. Aquí imprime en consola como ejemplo.
-
-// 21. Evento mouseenter
-
-$("#objetivo").mouseenter(function () {
-    console.log("El mouse entró en #objetivo");
-});
-//Qué hace: Ejecuta cuando el cursor entra en el área de #objetivo.
-
-// 22. Evento mouseleave
-js
-Copiar
-Editar
-$("#objetivo").mouseleave(function () {
-    console.log("El mouse salió de #objetivo");
-});
-//Qué hace: Ejecuta cuando el cursor sale del área de #objetivo.
-
-
+    // 22 - mouseleave
+    $("#btn22").click(function () {
+        $("#objetivo").mouseleave(function () {
+            alert("Mouse salió de #objetivo");
+        });
+    });
 });
