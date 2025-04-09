@@ -139,63 +139,54 @@ $(document).ready(function () {
         });
     });
 
-   // 23. .fadeIn()
-//Muestra con fundido el div oculto #real-madrid (en vez de solo .show()).
+    // 23 - fadeIn()
+    // Muestra con fundido el div oculto #real-madrid (en vez de solo .show()).
+    $("#btn23").click(function () {
+        $("#real-madrid").fadeIn(1000);
+    });
 
+    // 24 - fadeOut()
+    // Oculta el div #barcelona con fundido.
+    $("#btn24").click(function () {
+        $("#barcelona").fadeOut(1000);
+    });
 
-$("#btn23").click(function () {
-    $("#real-madrid").fadeIn(1000);
-});
-//24. .fadeOut()
-//Oculta el div #barcelona con fundido.
+    // 25 - slideUp()
+    // Desliza hacia arriba la tabla de clasificación.
+    $("#btn25").click(function () {
+        $("#clasificacion table").slideUp(800);
+    });
 
+    // 26 - slideDown()
+    // Desliza hacia abajo la tabla de clasificación si estaba oculta.
+    $("#btn26").click(function () {
+        $("#clasificacion table").slideDown(800);
+    });
 
-$("#btn24").click(function () {
-    $("#barcelona").fadeOut(1000);
-});
-//25. .slideUp()
-//Desliza hacia arriba la tabla de clasificación.
+    // 27 - animate()
+    // Mueve un elemento (ej: #objetivo) 100px a la derecha y aumenta su ancho.
+    $("#btn27").click(function () {
+        $("#objetivo").animate({
+            marginLeft: "100px",
+            width: "300px"
+        }, 1000);
+    });
 
+    // 28 - delay() + fadeIn()
+    // Espera 2 segundos y luego muestra #objetivo.
+    $("#btn28").click(function () {
+        $("#objetivo").hide().delay(2000).fadeIn(1000);
+    });
 
-$("#btn25").click(function () {
-    $("#clasificacion table").slideUp(800);
-});
-// 26. .slideDown()
-//Desliza hacia abajo la tabla de clasificación si estaba oculta.
+    // 29 - toggle()
+    // Alterna la visibilidad de #objetivo.
+    $("#btn29").click(function () {
+        $("#objetivo").toggle();
+    });
 
-
-$("#btn26").click(function () {
-    $("#clasificacion table").slideDown(800);
-});
-// 27. .animate()
-//Mueve un elemento (ej: #objetivo) 100px a la derecha y aumenta su ancho.
-
-
-$("#btn27").click(function () {
-    $("#objetivo").animate({
-        marginLeft: "100px",
-        width: "300px"
-    }, 1000);
-});
-// 28. .delay() + fadeIn()
-//Espera 2 segundos y luego muestra #objetivo.
-
-
-$("#btn28").click(function () {
-    $("#objetivo").hide().delay(2000).fadeIn(1000);
-});
-//29. .toggle()
-//Alterna la visibilidad de #objetivo.
-
-
-$("#btn29").click(function () {
-    $("#objetivo").toggle();
-});
-//30. .stop()
-//Detiene una animación en curso.
-
-
-$("#btn30").click(function () {
-    $("#objetivo").stop();
-});
+    // 30 - stop()
+    // Detiene una animación en curso.
+    $("#btn30").click(function () {
+        $("#objetivo").stop();
+    });
 });
