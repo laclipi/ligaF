@@ -14,6 +14,19 @@ $(document).ready(function () {
         $("#barcelona").removeClass("highlight");
         $("#resultados").html("Ejercicio 2: Se quitó el resaltado de Barcelona.");
     });
+//2 -OK...
+$(document).ready(function () {
+
+    $("#liga").mouseenter(function(){
+        $("#barcelona").addClass("highlight");
+        $("#resultados").html("Ejercicio 2: Se resaltó el equipo Barcelona.");
+    });
+
+    $("#liga").mouseleave(function(){
+        $("#barcelona").removeClass("highlight");
+        $("#resultados").html("Ejercicio 2: Se quitó el resaltado de Barcelona.");
+    });
+});
 
     // 3 - Ocultar fila de Atlético de Madrid
     $("#boton3").on("dblclick", function () {

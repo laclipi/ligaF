@@ -1,13 +1,9 @@
-//probar aqui los dif scripts para visualizar resultados, ejemplo ejercicio 2
-$(document).ready(function () {
+//PROBAR aqui los dif scripts para visualizar resultados, 
 
-    $("#liga").mouseenter(function(){
-        $("#barcelona").addClass("highlight");
-        $("#resultados").html("Ejercicio 2: Se resaltó el equipo Barcelona.");
-    });
 
-    $("#liga").mouseleave(function(){
-        $("#barcelona").removeClass("highlight");
-        $("#resultados").html("Ejercicio 2: Se quitó el resaltado de Barcelona.");
-    });
+$("#boton3").on("dblclick", function () {
+    $("#clasificacion table tr").filter(function () {
+        return $(this).text().includes("Atlético de Madrid");
+    }).hide();
+    $("#resultados").html("Ejercicio 3: Se ocultó la fila de Atlético de Madrid.");
 });
