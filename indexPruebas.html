@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga de Fútbol Española</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+</head>
+<body>
+
+    <div id="liga">
+        <h1 class="titulo">Liga de Fútbol Española</h1>
+        <p class="descripcion">La Liga Española de Fútbol, también conocida como LaLiga, es una de las principales competiciones de fútbol en España.</p>
+    </div>
+
+    <script>
+    // 1 - Aumentar tamaño del título 5px
+    $("#boton1").click(function () {
+        let actual = parseInt($(".titulo").css("font-size"));
+        $(".titulo").css("font-size", (actual + 5) + "px");
+        $("#resultados").html("Ejercicio 1: Se aumentó el tamaño del título en 5px.");
+    });
+    </script>
+
+</body>
+</html>
