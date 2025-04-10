@@ -4,25 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liga de Fútbol Española</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
+
+    <!-- Librería de jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+
+    <!-- Archivo JavaScript principal -->
+    <script src="javascript.js" defer></script>
+
+    <!-- Estilos opcionales pueden ir aquí -->
+    <style>
+        .highlight {
+            background-color: #ffeeba;
+            border: 2px solid #ffc107;
+            transition: all 0.3s ease;
+        }
+    </style>
+
+
+
 </head>
 <body>
 
+    <!-- Sección principal de la Liga -->
     <div id="liga">
         <h1 class="titulo">Liga de Fútbol Española</h1>
-        <p class="descripcion">La Liga Española de Fútbol, también conocida como LaLiga, es una de las principales competiciones de fútbol en España.</p>
+        <p class="descripcion">
+            La Liga Española de Fútbol, también conocida como LaLiga, es una de las principales competiciones de fútbol en España.
+        </p>
     </div>
 
-    <script>
-    // 1 - Aumentar tamaño del título 5px
-    $("#boton1").click(function () {
-        let actual = parseInt($(".titulo").css("font-size"));
-        $(".titulo").css("font-size", (actual + 5) + "px");
-        $("#resultados").html("Ejercicio 1: Se aumentó el tamaño del título en 5px.");
-    });
-    </script>
+    <!-- Sección de Equipos -->
+    <div id="equipos">
+        <h2 class="subtitulo">Equipos Principales</h2>
+
+        <div class="equipo" id="barcelona">
+            <h3 class="nombre-equipo">FC Barcelona</h3>
+            <p class="descripcion-equipo">Uno de los clubes más exitosos y populares del fútbol mundial.</p>
+        </div>
+
+        <div class="equipo" id="real-madrid">
+            <h3 class="nombre-equipo">Real Madrid CF</h3>
+            <p class="descripcion-equipo">Otro de los equipos más prestigiosos, con una rica historia en competiciones europeas.</p>
+        </div>
+
+        <div class="equipo" id="atletico-madrid">
+            <h3 class="nombre-equipo">Atlético de Madrid</h3>
+            <p class="descripcion-equipo">Conocido por su estilo de juego aguerrido y competitivo.</p>
+        </div>
+    </div>
+
+    <!-- Sección de Clasificación -->
+    <div id="clasificacion">
+        <h2 class="subtitulo">Clasificación Actual</h2>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Equipo</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Real Madrid</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>FC Barcelona</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Atlético de Madrid</td>
+                    <td>70</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Noticias -->
+    <div id="noticias">
+        <h2 class="subtitulo">Últimas Noticias</h2>
+
+        <div class="noticia">
+            <h3 class="titulo-noticia">El Real Madrid gana la Copa del Rey</h3>
+            <p class="detalle-noticia">El Real Madrid se coronó campeón de la Copa del Rey tras una victoria impresionante sobre el Barcelona.</p>
+        </div>
+
+        <div class="noticia">
+            <h3 class="titulo-noticia">Messi, máximo goleador histórico de LaLiga</h3>
+            <p class="detalle-noticia">Lionel Messi sigue rompiendo récords en la liga, convirtiéndose en el máximo goleador histórico.</p>
+        </div>
+    </div>
+
+    <!-- Botones de interacción -->
+    <div id="botones">
+        <button class="botones" id="boton1">Botón 1</button>
+        <button class="botones" id="boton2">Botón 2</button>
+        <button class="botones" id="boton3">Botón 3</button>
+        <button class="botones" id="boton4">Botón 4</button>
+    </div>
+
+
+
 
 </body>
 </html>
